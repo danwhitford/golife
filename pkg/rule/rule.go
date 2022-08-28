@@ -57,12 +57,12 @@ func ParseRule(s string) (RuleStruct, error) {
 }
 
 var ReplicatorRule = RuleStruct{Born: []int{1, 3, 5, 7}, Survive: []int{1, 3, 5, 7}}
-var ConwaywayRule = RuleStruct{Born: []int{3}, Survive: []int{2, 3}}
+var ConwayRule = RuleStruct{Born: []int{3}, Survive: []int{2, 3}}
 var PedestrianRule = RuleStruct{Born: []int{3, 8}, Survive: []int{2, 3}}
 var FlockRule = RuleStruct{Born: []int{3}, Survive: []int{1, 2}}
 
 var Patterns = map[string]RuleStruct{
-	"conway":     ConwaywayRule,
+	"conway":     ConwayRule,
 	"replicator": ReplicatorRule,
 	"pedestrian": PedestrianRule,
 	"flock":      FlockRule,
