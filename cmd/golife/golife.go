@@ -15,7 +15,7 @@ func main() {
 	width, height, _ := term.GetSize(int(os.Stdin.Fd()))
 
 	automata := flag.String("automata", "conway", "The automata to use")
-	rulestring := flag.String("rulestring", "", "The rulestring to use")
+	rulestring := flag.String("rulestring", "", "Define a B/S rulestring to use, see https://conwaylife.com/wiki/Rulestring")
 	listAutomata := flag.Bool("list", false, "List all automata")
 
 	flag.Parse()
