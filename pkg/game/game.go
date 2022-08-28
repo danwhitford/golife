@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/danwhitford/danterm/pkg/board"
-	"github.com/danwhitford/danterm/pkg/rule"
+	"github.com/danwhitford/golife/pkg/board"
+	"github.com/danwhitford/golife/pkg/rule"
 )
 
 type Game struct {

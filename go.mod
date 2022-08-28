@@ -1,4 +1,4 @@
-module github.com/danwhitford/danterm
+module github.com/danwhitford/golife
 
 go 1.19
 

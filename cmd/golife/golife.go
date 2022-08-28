@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/danwhitford/danterm/pkg/game"
-	"github.com/danwhitford/danterm/pkg/rule"
+	"github.com/danwhitford/golife/pkg/game"
+	"github.com/danwhitford/golife/pkg/rule"
 	"golang.org/x/term"
 )
 
