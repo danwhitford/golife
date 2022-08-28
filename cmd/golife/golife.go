@@ -29,12 +29,17 @@ func main() {
 
 	var r rule.RuleStruct
 	if *rulestring != "" {
-		r, _ = rule.ParseRule(*rulestring)
+		var err error
+		r, err = rule.ParseRule(*rulestring)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "Failed to parse the rulestring '%s'\n", *rulestring)
+			os.Exit(1)
+		}
 	} else {
 		var ok bool
 		r, ok = rule.Patterns[*automata]
 		if !ok {
-			fmt.Println("Could not find this automata")
+			fmt.Fprintf(os.Stderr, "Could not find automata '%s'. Try '-list' to list all available.\n", *automata)
 			os.Exit(1)
 		}
 	}
