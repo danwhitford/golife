@@ -2,6 +2,7 @@ package rule
 
 import (
 	"fmt"
+	"strconv"
 	"strings"
 )
 
@@ -28,6 +29,31 @@ func (rule RuleStruct) String() string {
 		}
 	}
 	return buf.String()
+}
+
+func ParseRule(s string) (RuleStruct, error) {
+	born := make([]int, 0)
+	survive := make([]int, 0)
+
+	bits := strings.Split(s, "/")
+
+	for _, v := range bits[0][1:] {
+		x, err := strconv.Atoi(string(v))
+		if err != nil {
+			return RuleStruct{}, err
+		}
+		born = append(born, x)
+	}
+
+	for _, v := range bits[1][1:] {
+		x, err := strconv.Atoi(string(v))
+		if err != nil {
+			return RuleStruct{}, err
+		}
+		survive = append(survive, x)
+	}
+
+	return RuleStruct{Born: born, Survive: survive}, nil
 }
 
 var ReplicatorRule = RuleStruct{Born: []int{1, 3, 5, 7}, Survive: []int{1, 3, 5, 7}}

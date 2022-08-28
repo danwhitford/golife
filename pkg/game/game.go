@@ -15,8 +15,6 @@ type Game struct {
 
 type SurvivalFn func(neighbours int, alive bool) bool
 
-
-
 func NewGame(width, height uint, rule rule.RuleStruct) Game {
 	board := board.NewRandom(width, height)
 	return Game{Board: board, Rule: rule}
@@ -84,4 +82,3 @@ func (game Game) Run() {
 		time.Sleep(time.Second / 15)
 	}
 }
-

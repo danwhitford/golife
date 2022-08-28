@@ -15,6 +15,7 @@ func main() {
 	width, height, _ := term.GetSize(int(os.Stdin.Fd()))
 
 	automata := flag.String("automata", "conway", "The automata to use")
+	rulestring := flag.String("rulestring", "", "The rulestring to use")
 	listAutomata := flag.Bool("list", false, "List all automata")
 
 	flag.Parse()
@@ -26,12 +27,18 @@ func main() {
 		os.Exit(0)
 	}
 
-	rule, ok := rule.Patterns[*automata]
-	if !ok {
-		fmt.Println("Could not find this automata")
-		os.Exit(1)
+	var r rule.RuleStruct
+	if *rulestring != "" {
+		r, _ = rule.ParseRule(*rulestring)
+	} else {
+		var ok bool
+		r, ok = rule.Patterns[*automata]
+		if !ok {
+			fmt.Println("Could not find this automata")
+			os.Exit(1)
+		}
 	}
 
-	game := game.NewGame(uint(width), uint(height), rule)
+	game := game.NewGame(uint(width), uint(height), r)
 	game.Run()
 }
